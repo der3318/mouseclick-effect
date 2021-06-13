@@ -77,6 +77,7 @@ function clickAndFocus(position) {
 
     // trigger effect on mouse down
     Events.on(mouseConstraint, "mousedown", function(event) {
+        /* js concurrent model is based on event-loop, so no lock is required */
         if (mouseConstraint.mouse.button != 0)  return;
         canvas.style.pointerEvents = "none";
         clickAndFocus(mouseConstraint.constraint.pointA);
